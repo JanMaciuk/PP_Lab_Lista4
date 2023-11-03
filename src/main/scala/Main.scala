@@ -8,6 +8,7 @@ object Main {
     println(Reduce(List(1,2,3,4,5), (x: Int,y:Int) => x+y, 0))
     println(Average(List(1,2,3,4,5)))
     println(Acronym(List("Zdefraudujemy","Ubezpieczonemu","Skladki")))
+    println(Acronym("Zdefraudujemy Ubezpieczonemu Skladki"))
     println(SquaresSmallerThanSum(List(1,2,3,4,5)))
   }
 
@@ -44,6 +45,10 @@ object Main {
   private def Acronym(list: List[String]): String = {
     val charlist = list.map(_.charAt(0))
     new String(charlist.toArray)
+  }
+  private def Acronym(sentence: String): String = {
+    val words = sentence.split(" ")
+    Acronym(words.toList)
   }
 
   private def SquaresSmallerThanSum(list: List[Int]): List[Int] = {
